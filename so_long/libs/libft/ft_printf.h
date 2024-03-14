@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/20 21:57:27 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/21 19:31:56 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-# include "structs.h"
+# include <stdarg.h>
+# include "libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
-
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
-
-void	init_game(char *file);
+int	ft_printf(const char *str, ...);
+int	ft_print_unsigned(unsigned int n);
+int	ft_print_str(char *str);
+int	ft_print_ptr(unsigned long long ptr);
+int	ft_print_perc(void);
+int	ft_print_nbr(int n);
+int	ft_print_hex(unsigned int n, const char format);
+int	ft_print_char(int c);
 
 #endif

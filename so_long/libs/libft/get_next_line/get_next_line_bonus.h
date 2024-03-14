@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/24 19:18:39 by resilva           #+#    #+#             */
+/*   Updated: 2024/03/14 17:36:14 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-# include "structs.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include "../libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+# define MAX 10000
 
-void	init_game(char *file);
+char	*get_next_line(int fd);
+char	*ft_get_line(char *left_str);
+char	*ft_new_left_str(char *left_str);
+char	*ft_read_line(int fd, char *left_str);
 
 #endif

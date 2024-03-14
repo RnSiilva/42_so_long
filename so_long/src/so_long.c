@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2024/03/14 16:00:39 by resilva           #+#    #+#             */
+/*   Updated: 2024/03/14 18:47:30 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
+#include <stdlib.h>
 
-# include "structs.h"
+void	init_game(char *file)
+{
+	t_game	game;
+	
+	ft_bzero (&game, sizeof(t_game));
+}
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
-
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
-
-void	init_game(char *file);
-
-#endif
+int	main (int ac, char **av)
+{
+	if (ac != 2)
+		return (1);
+	init_game(av[1]);
+}

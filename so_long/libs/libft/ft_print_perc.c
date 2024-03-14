@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_print_perc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/20 21:36:35 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/23 22:48:18 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "ft_printf.h"
 
-# include "structs.h"
+int	ft_print_perc(void)
+{
+	return (write(1, "%", 1));
+}
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+// int	main(void)
+// {
+// 	int	len;
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+// 	ft_printf("\n\t >>> ft_ <<<\n");
+// 	len = ft_print_perc();
+// 	ft_printf("\nlen ft_: %d\n\n", len);
 
-void	init_game(char *file);
-
-#endif
+// 	printf("\n\t >>> orig <<<\n");
+// 	len = printf("%%");
+// 	printf("\nlen org: %d\n\n", len);
+// 	return (0);
+// }

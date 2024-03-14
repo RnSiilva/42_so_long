@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/14 20:28:45 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/17 18:36:05 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+/* 
+LIBRARY: string.h
+DEF: Calculates the lenght of a string
+RETURN : The lenght of the string.
+*/
 
-# include "structs.h"
+#include "libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
 
-void	init_game(char *file);
+// int	main(void)
+// {
+// 	char	*str;
 
-#endif
+// 	str = "42School";
+// 	printf("The length of '%s' is: %zu\n", str, ft_strlen(str));
+// }

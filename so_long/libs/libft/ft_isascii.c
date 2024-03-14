@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/14 19:52:27 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/17 17:17:48 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+/* 
+LIBRARY: ctype.h
+DEF: Checks for an ascii character.
+RETURN : Positive number if true, and zero if false.
+*/
 
-# include "structs.h"
+#include "libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+// int	main(void)
+// {
+// 	char	c;
 
-void	init_game(char *file);
-
-#endif
+// 	c = '~';
+// 	if (ft_isascii(c))
+// 		printf("The char '%c' is ascii\n", c);
+// 	else
+// 		printf("The char '%c' is not ascii\n", c);
+// }

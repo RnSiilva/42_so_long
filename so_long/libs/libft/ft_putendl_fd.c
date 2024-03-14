@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/15 03:32:02 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/17 22:14:18 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+/* 
+DEF: Writes a string followed by a newline to a file associated with a 'fd'.
+RETURN : None.
+*/
 
-# include "structs.h"
+#include "libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+void	ft_putendl_fd(char *s, int fd)
+{
+	size_t	len;
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+	len = ft_strlen(s);
+	write(fd, s, len);
+	write(fd, "\n", 1);
+}
 
-void	init_game(char *file);
-
-#endif
+// int	main(void)
+// {
+// 	ft_putendl_fd("42School", 1);
+// }

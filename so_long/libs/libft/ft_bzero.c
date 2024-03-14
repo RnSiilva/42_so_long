@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:27:02 by resilva          ###   ########.fr       */
+/*   Created: 2023/10/14 22:58:01 by resilva           #+#    #+#             */
+/*   Updated: 2023/10/17 17:05:22 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+/* 
+LIBRARY: strings.h
+DEF: Fill a memory block with zeros.
+RETURN : None.
+*/
 
-# include "structs.h"
+#include "libft.h"
 
-# include "../libs/libft/libft.h"
-# include "../libs/libft/get_next_line/get_next_line_bonus.h"
+void	ft_bzero(void *s, size_t n)
+{
+	char	*p;
+	size_t	i;
 
-/*void	initialize_game(t_game *game, const char *map_file);
-void	move_player(t_game *game, char direction);
-void	display_game(t_game *game);*/
+	p = (char *)s;
+	i = -1;
+	while (++i < n)
+		p[i] = 0;
+}
 
-void	init_game(char *file);
-
-#endif
+// int	main(void)
+// {
+// 	char	str[] = "42School";
+// 	printf("\nbefore ft_bzero: %s\n", str);
+// 	ft_bzero(str, 1);
+// 	printf("after ft_bzero: %s\n\n", str);
+// }
