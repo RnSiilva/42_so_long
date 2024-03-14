@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 15:26:02 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/14 19:26:26 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,29 @@ typedef struct	s_pos
 	int	y;
 }				t_pos;
 
+typedef struct	s_img
+{
+	void	*ptr;
+	int		*pixels;
+	int		line_size;
+	int		mem;
+	int		x;
+	int		y;
+	int		movements;
+}				t_img;
+typedef struct	s_map
+{
+	char	**tiles;
+	t_pos	pos;
+	int		coins;
+	int		exit;
+	int		player;
+}				t_map;
+
 typedef struct	s_game
 {
+	void	*mlx_ptr;
+	void	*win_ptr;
 	char	**map;
 	t_pos	player_pos;
 }				t_game;
