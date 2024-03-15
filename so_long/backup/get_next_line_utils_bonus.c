@@ -1,67 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:59:42 by resilva           #+#    #+#             */
-/*   Updated: 2023/11/01 20:01:27 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:36:07 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-int	ft_strlen(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_strchr(char *str, int c)
-{
-	int	i;
-
-	if (!str || !c)
-		return (0);
-	i = -1;
-	while (str[++i])
-		if (str[i] == c)
-			return (1);
-	return (0);
-}
-
-char	*ft_strjoin(char *left_str, char *buff)
-{
-	char	*str;
-	int		i;
-	int		j;
-
-	if (!left_str)
-	{
-		left_str = (char *)malloc(sizeof(char) * 1);
-		left_str[0] = '\0';
-	}
-	if (!left_str || !buff)
-		return (NULL);
-	str = (char *)malloc(ft_strlen(left_str) + ft_strlen(buff) + 1);
-	if (!str)
-		return (NULL);
-	i = -1;
-	j = 0;
-	if (left_str)
-		while (left_str[++i])
-			str[i] = left_str[i];
-	while (buff[j])
-		str[i++] = buff[j++];
-	str[i] = '\0';
-	free(left_str);
-	return (str);
-}
+#include "get_next_line_bonus.h"
 
 char	*ft_get_line(char *left_str)
 {

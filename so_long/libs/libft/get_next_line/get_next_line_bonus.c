@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:54:12 by resilva           #+#    #+#             */
-/*   Updated: 2023/11/02 20:45:40 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/15 01:52:49 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_read_line(int fd, char *left_str)
 	if (!buff)
 		return (NULL);
 	bytes = 1;
-	while (!ft_strchr(left_str, '\n') && bytes != 0)
+	while (!find_chr(left_str, '\n') && bytes != 0)
 	{
 		bytes = read(fd, buff, BUFFER_SIZE);
 		if (bytes == -1)
@@ -31,7 +31,7 @@ char	*ft_read_line(int fd, char *left_str)
 			return (NULL);
 		}
 		buff[bytes] = '\0';
-		left_str = ft_strjoin(left_str, buff);
+		left_str = to_join(left_str, buff);
 	}
 	free(buff);
 	return (left_str);

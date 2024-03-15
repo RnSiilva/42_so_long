@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:28:45 by resilva           #+#    #+#             */
-/*   Updated: 2023/10/17 18:36:05 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/15 00:41:11 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ RETURN : The lenght of the string.
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
+	int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i])
 		i++;

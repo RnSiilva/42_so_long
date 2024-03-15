@@ -6,13 +6,15 @@
 #    By: resilva <resilva@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 16:02:54 by resilva           #+#    #+#              #
-#    Updated: 2024/03/14 17:43:25 by resilva          ###   ########.fr        #
+#    Updated: 2024/03/15 02:08:01 by resilva          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
 SRC			= src/so_long.c \
+				src/map.c \
+				src/utils.c \
 
 OBJS		= ${SRC:.c=.o}
 

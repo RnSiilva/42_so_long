@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:54:12 by resilva           #+#    #+#             */
-/*   Updated: 2023/11/03 22:02:40 by resilva          ###   ########.fr       */
+/*   Updated: 2023/11/02 20:45:40 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_line(int fd, char *left_str)
 {
@@ -40,15 +40,15 @@ char	*ft_read_line(int fd, char *left_str)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*left_str;
+	static char	*left_str[MAX];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd >= MAX)
 		return (NULL);
-	left_str = ft_read_line(fd, left_str);
-	if (!left_str)
+	left_str[fd] = ft_read_line(fd, left_str[fd]);
+	if (!left_str[fd])
 		return (NULL);
-	line = ft_get_line(left_str);
-	left_str = ft_new_left_str(left_str);
+	line = ft_get_line(left_str[fd]);
+	left_str[fd] = ft_new_left_str(left_str[fd]);
 	return (line);
 }
 
@@ -57,16 +57,21 @@ char	*get_next_line(int fd)
 // 	char	*line;
 // 	int		i;
 // 	int		fd;
+// 	int		fd2;
+// 	int		fd3;
 
+// 	fd = open("foo.txt", O_RDONLY);
+// 	fd2 = open("foo2.txt", O_RDONLY);
+// 	fd3 = open("foo3.txt", O_RDONLY);
 // 	i = 0;
-// 	fd = open("foo2.txt", O_RDONLY);
-// 	line = (char *)-1;
-// 	while (line)
+// 	while (i++ < 6)
 // 	{
 // 		line = get_next_line(fd);
-// 		if (!line)
-// 			break ;
-// 		printf("[%02d] -> %s", i++, line);
+// 		printf("[%02d] -> %s", i, line);
+// 		line = get_next_line(fd2);
+// 		printf("[%02d] -> %s", i, line);
+// 		line = get_next_line(fd3);
+// 		printf("[%02d] -> %s", i, line);
 // 	}
 // 	free(line);
 // 	close(fd);

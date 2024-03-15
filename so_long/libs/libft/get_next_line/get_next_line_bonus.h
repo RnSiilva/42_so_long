@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 19:18:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 17:36:14 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/15 01:52:24 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@
 # define MAX 10000
 
 char	*get_next_line(int fd);
+int		find_chr(char *str, int c);
 char	*ft_get_line(char *left_str);
 char	*ft_new_left_str(char *left_str);
+char	*to_join(char *left_str, char *buff);
 char	*ft_read_line(int fd, char *left_str);
 
 #endif
