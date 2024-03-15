@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 23:53:51 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/15 19:04:43 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define SO_LONG_H
 
 # include "structs.h"
+
+# include <stdlib.h>
+# include <stdio.h>
+# include <stdbool.h>
 
 # include "../libs/libft/libft.h"
 # include "../libs/libft/get_next_line/get_next_line_bonus.h"
@@ -24,6 +28,7 @@ void	display_game(t_game *game);*/
 
 void	read_map(t_game *game, char *file);
 void	check_filename(char	*file);
+void	check_map(t_game *game);
 int		exit_error(t_game *game, char *msg);
 
 #endif
