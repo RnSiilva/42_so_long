@@ -6,11 +6,23 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:48:11 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/14 23:58:24 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/19 19:52:11 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	clean_tiles(char **tiles)
+{
+	int	i;
+
+	i = -1;
+	if (!tiles)
+		return ;
+	while (tiles[++i])
+		free (tiles[i]);
+	free (tiles);
+}
 
 int	exit_error(t_game *game, char *msg)
 {
@@ -30,5 +42,24 @@ void	check_filename(char	*file)
 		exit_error(NULL, "Invalid file name.");
 	else if (!ft_strnstr(file + i - 4, ".ber", 4))
 		exit_error(NULL, "Invalid file extension.");
+}
+
+int	flood_fill(t_map *map, t_pos curr, char **path)
+{
+	static int	coins = 0;
+	static int	exit = 0;
+	
+	if (path[curr.y][curr.x] == WALL)
+		return (0);
+	else if (path[curr.y][curr.x] == COIN)
+		coins++;
+	else if (path[curr.y][curr.x] == EXIT)
+		exit++;
+	path[curr.y][curr.x] = WALL;
+	flood_fill(map, (t_pos){curr.x + 1, curr.y}, path);
+	flood_fill(map, (t_pos){curr.x - 1, curr.y}, path);
+	flood_fill(map, (t_pos){curr.x, curr.y + 1}, path);
+	flood_fill(map, (t_pos){curr.x, curr.y - 1}, path);
+	return (map->coins == coins && exit == 1);
 }
 
