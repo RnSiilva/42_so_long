@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/15 02:18:02 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/18 16:17:28 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ static int	add_line(t_game *game, char *line)
 	if (game->map->tiles)
 		free(game->map->tiles);
 	game->map->tiles = temporary;
+	clean_tiles(temporary);
 	return (1);
 }
 

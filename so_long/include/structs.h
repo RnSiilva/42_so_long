@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/15 18:57:39 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/18 15:53:41 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,16 @@
 
 # include "so_long.h"
 
-# define WALL 1
+# define TILES "01PCE"
+
+typedef enum	s_tile
+{
+	SPACE = '0',
+	WALL = '1',
+	PLAYER = 'P',
+	COIN = 'C',
+	EXIT = 'E',
+}				t_tile;
 typedef struct	s_pos
 {
 	int	x;
