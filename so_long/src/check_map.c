@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:27:40 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/19 20:05:41 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 01:53:23 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 static bool	check_format(t_map *map)
 {
 	size_t	rows;
+	size_t	rows;
 	int	i;
 
+	i = -1;
 	rows = ft_strlen(map->tiles[0]);
 	i = -1;
 	while (++i < map->pos.y - 1)
@@ -96,6 +98,7 @@ void	check_map(t_game *game)
 {
 	if (!game->map->pos.y)
 		exit_error(game, "Map is empty!");
+	if (!check_format(game->map))
 	if (!check_format(game->map))
 		exit_error(game, "Map isn't rectangular");
 	if (!check_walls(game->map))
