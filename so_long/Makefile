@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: resilva <resilva@student.42.fr>            +#+  +:+       +#+         #
+#    By: resilva <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 16:02:54 by resilva           #+#    #+#              #
-#    Updated: 2024/03/15 18:46:01 by resilva          ###   ########.fr        #
+#    Updated: 2024/03/21 17:18:21 by resilva          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC			= src/so_long.c \
 				src/map.c \
 				src/utils.c \
 
+#SRC:= $(wildcard src/*.c)
 OBJS		= ${SRC:.c=.o}
 
 CC			= gcc
