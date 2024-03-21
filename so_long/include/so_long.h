@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/18 03:31:58 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 01:36:36 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ void	read_map(t_game *game, char *file);
 void	check_filename(char	*file);
 void	check_map(t_game *game);
 int		exit_error(t_game *game, char *msg);
+void	clean_tiles(char **tiles);
+int	flood_fill(t_map *map, t_pos curr, char **path);
 
 #endif
