@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
+/*   By: resilva <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 01:52:12 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:57:40 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static int	add_line(t_game *game, char *line)
 	temporary[rows] = NULL;
 	while (++i < rows - 1)
 		temporary[i] = game->map->tiles[i];
-	temporary[i] = line;
+	temporary[i] = ft_strdup(line);
 	if (game->map->tiles)
 		free(game->map->tiles);
 	game->map->tiles = temporary;
-	clean_tiles(temporary);
+	//clean_tiles(temporary);
 	return (1);
 }
 

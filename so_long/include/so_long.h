@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
+/*   By: resilva <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 01:53:39 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 17:52:49 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 
+# include "../libs/minilibx-linux/mlx.h"
 # include "../libs/libft/libft.h"
 # include "../libs/libft/get_next_line/get_next_line_bonus.h"
 

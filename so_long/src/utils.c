@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
+/*   By: resilva <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:48:11 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/19 19:52:11 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:59:16 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	clean_tiles(char **tiles)
 {
 	int	i;
 
-	i = -1;
-	if (!tiles)
+	i = 0;
+	if (!tiles || !tiles[i])
 		return ;
-	while (tiles[++i])
-		free (tiles[i]);
+	while (tiles[i])
+		free (tiles[i++]);
 	free (tiles);
 }
 

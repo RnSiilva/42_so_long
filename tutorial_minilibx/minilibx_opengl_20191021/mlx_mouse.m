@@ -1,7 +1,7 @@
 #include	<stdio.h>
 
 #import <Cocoa/Cocoa.h>
-#import <OpenGL/gl3.h>
+#import <GLES3/gl3.h>
 
 #include	"mlx_int.h"
 #include	"mlx_new_window.h"

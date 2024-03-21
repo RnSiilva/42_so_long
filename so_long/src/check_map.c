@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
+/*   By: resilva <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:27:40 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 01:53:23 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:30:10 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static bool	check_format(t_map *map)
 {
-	size_t	rows;
 	size_t	rows;
 	int	i;
 
@@ -67,7 +66,7 @@ static bool	check_tiles(t_game *game, t_map *map)
 				return (false);
 		}
 	}
-	return (PLAYER == 1 && EXIT == 1 && map->coins);
+	return (map->player == 1 && map->exit == 1 && map->coins);
 }
 
 static int	check_path(t_game *game, t_map *map)
@@ -98,7 +97,6 @@ void	check_map(t_game *game)
 {
 	if (!game->map->pos.y)
 		exit_error(game, "Map is empty!");
-	if (!check_format(game->map))
 	if (!check_format(game->map))
 		exit_error(game, "Map isn't rectangular");
 	if (!check_walls(game->map))
