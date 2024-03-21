@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:27:40 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 01:52:05 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 01:53:23 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static bool	check_walls(t_map *map)
 static bool	check_tiles(t_game *game, t_map *map)
 {
 	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < map->pos.y)
