@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: resilva <marvin@42.fr>                     +#+  +:+       +#+         #
+#    By: resilva <resilva@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 16:02:54 by resilva           #+#    #+#              #
-#    Updated: 2024/03/21 17:51:53 by resilva          ###   ########.fr        #
+#    Updated: 2024/03/21 20:19:15 by resilva          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC			= src/so_long.c \
 				src/check_map.c \
 				src/map.c \
 				src/utils.c \
+				src/init_game.c \
 
 #SRC:= $(wildcard src/*.c)
 OBJS		= ${SRC:.c=.o}

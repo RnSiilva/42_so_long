@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/14 16:00:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:06:11 by resilva          ###   ########.fr       */
+/*   Created: 2024/03/21 20:04:39 by resilva           #+#    #+#             */
+/*   Updated: 2024/03/21 20:18:28 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_game(char *file)
+void	launch_mlx(t_game *game, t_map *map)
 {
-	t_game	game;
-	
-	ft_bzero (&game, sizeof(t_game));
-	read_map (&game, file);
-	check_map(&game);
-	launch_mlx(&game, game.map); 
-}
-
-int	main (int ac, char **av)
-{
-	if (ac != 2)
-		return (1);
-	check_filename(av[1]);
-	init_game(av[1]);
+	game->mlx_ptr = mlx_init();
+	if (!game->mlx_ptr)
+		exit_error(game, "Error when starting MLX");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, map->pos.x * SIZE, map->pos.y * SIZE, "so_long");
+	if (!game->mlx_ptr)
+		exit_error(game, "Error creating window");
 }

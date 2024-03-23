@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: resilva <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 17:52:49 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 20:18:55 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@
 void	move_player(t_game *game, char direction);
 void	display_game(t_game *game);*/
 
-void	read_map(t_game *game, char *file);
 void	check_filename(char	*file);
 void	check_map(t_game *game);
+void	read_map(t_game *game, char *file);
+
 int		exit_error(t_game *game, char *msg);
 void	clean_tiles(char **tiles);
-int	flood_fill(t_map *map, t_pos curr, char **path);
+
+int		flood_fill(t_map *map, t_pos curr, char **path);
+
+void	launch_mlx(t_game *game, t_map *map);
 
 #endif
