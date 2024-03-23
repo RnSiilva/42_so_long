@@ -1,0 +1,2 @@
+Install Minilibx Ubuntu:
+https://gist.github.com/caio-vinicius/c082bf00b6b2d3c8aeb58f038af9b210
