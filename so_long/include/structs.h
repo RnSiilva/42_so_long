@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 01:49:44 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/21 20:17:04 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "so_long.h"
 
 # define TILE "01PCE"
+# define SIZE 32
 
 typedef enum	e_tile
 {
