@@ -1,42 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx_esc.c                                          :+:      :+:    :+:   */
+/*   mlx_test.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 15:31:50 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/23 17:01:11 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/23 22:17:56 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minilibx-linux/mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
+#include "mlx_test.h"
 
-#define WIDTH 800
-#define HEIGTH 600
-
-typedef enum	e_keys
-{
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_RESIZE = 8,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17,
-	ESC = 65307
-}				t_keys;
-
-typedef struct	s_win
-{
-	void	*win_ptr;
-	void	*mlx_ptr;
-}				t_win;
-
-int	close(int keycode, t_win *win)
+int	key_pressed(int keycode, t_win *win)
 {
 	if (keycode == ESC)
 	{
@@ -60,8 +36,26 @@ int	resize(int x, int y, t_win *win)
 	(void)y;
 	(void)win;
 	
-	printf("Window resized to %d x %d", x, y);
+	printf("Window resized\n");
 	return (0);
+}
+
+int	mouse_enter(int x, int y, t_win *win)
+{
+	(void)x;
+	(void)y;
+	(void)win;
+
+	return (printf("Hello!\n"));
+}
+
+int	mouse_leave(int x, int y, t_win *win)
+{
+	(void)x;
+	(void)y;
+	(void)win;
+
+	return (printf("Bye!\n"));
 }
 
 int	main(void)
@@ -69,9 +63,11 @@ int	main(void)
 	t_win	win;
 
 	win.mlx_ptr = mlx_init();
-	win.win_ptr = mlx_new_window(win.mlx_ptr, WIDTH, HEIGTH, "hook");
-	mlx_hook(win.win_ptr, ON_KEYDOWN, 1L<<0, close, &win);
-	mlx_hook(win.win_ptr, ON_RESIZE, 1L<<0, resize, &win);
+	win.win_ptr = mlx_new_window(win.mlx_ptr, WIDTH, HEIGTH, "Hook Events");
+	mlx_hook(win.win_ptr, ON_KEYDOWN, 1L<<0, key_pressed, &win);
 	mlx_hook(win.win_ptr, ON_DESTROY, 0, destroy, &win);
+	mlx_hook(win.win_ptr, ON_MOUSE_ENTER, 1L<<4, mouse_enter, &win);
+	mlx_hook(win.win_ptr, ON_MOUSE_LEAVE, 1L<<5, mouse_leave, &win);
+	mlx_hook(win.win_ptr, ON_RESIZE, 1L<<18, resize, &win);
 	mlx_loop(win.mlx_ptr);
 }
