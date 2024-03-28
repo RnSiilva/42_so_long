@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   loop_hook.c                                        :+:      :+:    :+:   */
+/*   rainbow.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 00:49:28 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/24 02:58:31 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/28 18:57:01 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "loop_hook.h"
+#include "rainbow.h"
 
 void	put_pixel_img(t_img *img, int color)
 {
@@ -34,20 +34,12 @@ int	render_next_frame(t_win *win)
 	static int	color = BLUE;
 	
 	if (color == RED)
-	{
-		put_pixel_img(win->img, GREEN);
 		color = GREEN;
-	}
 	else if (color == GREEN)
-	{
-		put_pixel_img(win->img, BLUE);
 		color = BLUE;
-	}
 	else
-	{
-		put_pixel_img(win->img, RED);
 		color = RED;
-	}
+	put_pixel_img(win->img, color);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->img->img, 0, 0);
 	usleep(1000000);
 	return (0);

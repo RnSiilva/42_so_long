@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minilibx-linux/mlx.h"
+#include "../../../minilibx-linux/mlx.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>

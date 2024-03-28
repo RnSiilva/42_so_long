@@ -1,7 +1,7 @@
 NAME		= tutorial#
 INC			= -I ./include#
 UNAME		= $(shell uname)#	# UNAME will get the OS name, this will help define behaviors for certain OS's
-MLX_PATH	= ../../minilibx-linux
+MLX_PATH	= ../../../minilibx-linux
 CFLAGS		= -Wall -Werror -Wextra -g#
 MLX			= -L ${MLX_PATH} -lmlx -lmlx -lXext -lX11 -lm#
 SRC			= $(wildcard *.c)#	# list your source files
