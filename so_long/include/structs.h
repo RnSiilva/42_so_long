@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/28 23:04:48 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 01:18:14 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@
 # define ON_EXPOSE		12
 # define EXPOSE_MASK	32768
 # define MLX_ERROR		1
-/* To check the tiles */
-# define TILE "01PCE"
-
-/* Sprite size */
-# define SIZE 50
 
 /* Path images */
 # define WALL_PATH		"./img/wall.xpm"
@@ -35,6 +30,13 @@
 # define COLLECT_PATH	"./img/collect.xpm"
 # define EXIT_PATH		"./img/exit.xpm"
 # define FREESP_PATH	"./img/freesp.xpm"
+
+/* Sprite size */
+# define SIZE 50
+
+/* To check the tiles */
+# define TILE "01PCE"
+
 typedef enum	e_tile
 {
 	SPACE = '0',

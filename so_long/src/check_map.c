@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:27:40 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:06:01 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 01:31:55 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static bool	check_format(t_map *map)
 {
 	size_t	rows;
-	int	i;
+	int		i;
 
 	i = -1;
 	rows = ft_strlen(map->tiles[0]);
@@ -56,7 +56,7 @@ static bool	check_tiles(t_game *game, t_map *map)
 			if (map->tiles[i][j] == PLAYER)
 			{
 				map->player++;
-				game->player_pos = (t_pos){j,i};
+				game->player_pos = (t_pos){j, i};
 			}
 			else if (map->tiles[i][j] == COIN)
 				map->coins++;

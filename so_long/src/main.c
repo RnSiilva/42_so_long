@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:00:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 00:34:34 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 01:29:50 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	init_game(char *file)
 {
 	t_game	game;
-	
+
 	ft_bzero (&game, sizeof(t_game));
 	read_map (&game, file);
 	check_map(&game);
@@ -28,7 +28,7 @@ static void	init_game(char *file)
 	mlx_loop(game.mlx_ptr);
 }
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac != 2)
 		exit_error(NULL, "Invalid number of arguments.");

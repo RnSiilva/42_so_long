@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:31:01 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 00:35:45 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 01:30:03 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	keypress(int key, t_game *game)
 		game->next_pos = (t_pos){game->player_pos.x + 1, game->player_pos.y};
 	return (0);
 }
+
 void	player_move(t_game *game, t_map *map)
 {
 	static t_tile	previous = SPACE;
@@ -43,7 +44,7 @@ void	player_move(t_game *game, t_map *map)
 
 static bool	is_same_place(t_pos curr, t_pos next)
 {
-	return (curr.x == next.x && curr.y == next.y);	
+	return (curr.x == next.x && curr.y == next.y);
 }
 
 static bool	check_move(t_game *game)

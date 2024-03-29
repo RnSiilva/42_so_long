@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 00:48:43 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 01:31:24 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ static int	add_line(t_game *game, char *line)
 	if (game->map->tiles)
 		free(game->map->tiles);
 	game->map->tiles = temp;
-	//clean_tiles(temporary);
 	return (1);
 }
 
@@ -65,7 +64,7 @@ void	read_map(t_game *game, char *file)
 		clean_line = ft_strtrim(line, "\n");
 		free(line);
 		if (!add_line(game, clean_line))
-			break;
+			break ;
 		free(clean_line);
 	}
 	close (fd);
@@ -84,7 +83,7 @@ void	render_tile(t_game *game, t_pos	p)
 		game->character.img, (p.x * SIZE), (p.y * SIZE));
 	else if (game->map->tiles[p.y][p.x] == EXIT)
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->exit.img, (p.x * SIZE), (p.y * SIZE)); 
+		game->exit.img, (p.x * SIZE), (p.y * SIZE));
 	else
 		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
 		game->free_space.img, (p.x * SIZE), (p.y * SIZE));
