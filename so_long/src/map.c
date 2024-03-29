@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:06:07 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 00:48:43 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static t_map	*create_map(void)
 
 static int	add_line(t_game *game, char *line)
 {
-	char	**temporary;
+	char	**temp;
 	int		i;
 	int		rows;
 
@@ -33,16 +33,16 @@ static int	add_line(t_game *game, char *line)
 		return (0);
 	i = -1;
 	rows = ++game->map->pos.y;
-	temporary = ft_calloc(rows + 1, sizeof(char *));
-	if (!temporary)
+	temp = ft_calloc(rows + 1, sizeof(char *));
+	if (!temp)
 		exit_error(game, "Malloc failed");
-	temporary[rows] = NULL;
+	temp[rows] = NULL;
 	while (++i < rows - 1)
-		temporary[i] = game->map->tiles[i];
-	temporary[i] = ft_strdup(line);
+		temp[i] = game->map->tiles[i];
+	temp[i] = ft_strdup(line);
 	if (game->map->tiles)
 		free(game->map->tiles);
-	game->map->tiles = temporary;
+	game->map->tiles = temp;
 	//clean_tiles(temporary);
 	return (1);
 }
@@ -50,6 +50,7 @@ static int	add_line(t_game *game, char *line)
 void	read_map(t_game *game, char *file)
 {
 	char	*line;
+	char	*clean_line;
 	int		fd;
 
 	game->map = create_map();
@@ -60,10 +61,44 @@ void	read_map(t_game *game, char *file)
 		exit_error(game, "File opening failed");
 	while (1)
 	{
-		line = ft_strtrim(get_next_line(fd), "\n");
-		if (!add_line(game, line))
-			break;
+		line = get_next_line(fd);
+		clean_line = ft_strtrim(line, "\n");
 		free(line);
+		if (!add_line(game, clean_line))
+			break;
+		free(clean_line);
 	}
 	close (fd);
+}
+
+void	render_tile(t_game *game, t_pos	p)
+{
+	if (game->map->tiles[p.y][p.x] == WALL)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->wall.img, (p.x * SIZE), (p.y * SIZE));
+	else if (game->map->tiles[p.y][p.x] == COIN)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->collectible.img, (p.x * SIZE), (p.y * SIZE));
+	else if (game->map->tiles[p.y][p.x] == PLAYER)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->character.img, (p.x * SIZE), (p.y * SIZE));
+	else if (game->map->tiles[p.y][p.x] == EXIT)
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->exit.img, (p.x * SIZE), (p.y * SIZE)); 
+	else
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+		game->free_space.img, (p.x * SIZE), (p.y * SIZE));
+}
+
+void	render_map(t_game *game, t_map *map)
+{
+	t_pos	position;
+
+	position.y = -1;
+	while (++position.y < map->pos.y)
+	{
+		position.x = -1;
+		while (++position.x < map->pos.x)
+			render_tile(game, position);
+	}
 }

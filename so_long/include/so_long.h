@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:27:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:18:55 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 00:32:49 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	display_game(t_game *game);*/
 void	check_filename(char	*file);
 void	check_map(t_game *game);
 void	read_map(t_game *game, char *file);
+void	render_map(t_game *game, t_map *map);
+void	render_tile(t_game *game, t_pos	p);
+
 
 int		exit_error(t_game *game, char *msg);
 void	clean_tiles(char **tiles);
@@ -37,5 +40,14 @@ void	clean_tiles(char **tiles);
 int		flood_fill(t_map *map, t_pos curr, char **path);
 
 void	launch_mlx(t_game *game, t_map *map);
+void	load_sprites(t_game *game);
+t_img	new_sprite(void	*mlx_ptr, char *path);
+
+int	destroy_game(t_game *game);
+int	keypress(int key, t_game *game);
+int	move_render(t_game *game);
+
+t_tile	get_tile(t_game *game, t_pos pos);
+
 
 #endif

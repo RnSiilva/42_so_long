@@ -6,14 +6,16 @@
 #    By: resilva <resilva@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 16:02:54 by resilva           #+#    #+#              #
-#    Updated: 2024/03/21 20:19:15 by resilva          ###   ########.fr        #
+#    Updated: 2024/03/29 00:34:56 by resilva          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
-SRC			= src/so_long.c \
+SRC			= src/main.c \
 				src/check_map.c \
+				src/controls.c \
+				src/destroy_game.c \
 				src/map.c \
 				src/utils.c \
 				src/init_game.c \

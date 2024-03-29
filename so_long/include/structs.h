@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:17:04 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/28 23:04:48 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,26 @@
 
 # include "so_long.h"
 
+/* Key events */
+# define ON_KEYPRESS	2
+# define KEYPRESS_MASK	3
+# define ON_DESTROY		17
+# define DESTROY_MASK	0
+# define ON_EXPOSE		12
+# define EXPOSE_MASK	32768
+# define MLX_ERROR		1
+/* To check the tiles */
 # define TILE "01PCE"
-# define SIZE 32
 
+/* Sprite size */
+# define SIZE 50
+
+/* Path images */
+# define WALL_PATH		"./img/wall.xpm"
+# define CHAR_PATH		"./img/char.xpm"
+# define COLLECT_PATH	"./img/collect.xpm"
+# define EXIT_PATH		"./img/exit.xpm"
+# define FREESP_PATH	"./img/freesp.xpm"
 typedef enum	e_tile
 {
 	SPACE = '0',
@@ -27,6 +44,19 @@ typedef enum	e_tile
 	EXIT = 'E',
 }				t_tile;
 
+typedef enum	e_key
+{
+	ESC = 65307,
+	W = 119,
+	S = 115,
+	A = 97,
+	D = 100,
+	UP = 65362,
+	DOWN = 65364,
+	LEFT = 65361,
+	RIGHT = 65363,
+}				t_key;
+
 typedef struct	s_pos
 {
 	int	x;
@@ -35,7 +65,7 @@ typedef struct	s_pos
 
 typedef struct	s_img
 {
-	void	*ptr;
+	void	*img;
 	int		*pixels;
 	int		line_size;
 	int		mem;
@@ -58,6 +88,14 @@ typedef struct	s_game
 	void	*win_ptr;
 	t_map	*map;
 	t_pos	player_pos;
+	t_pos	next_pos;
+	t_img	wall;
+	t_img	character;
+	t_img	collectible;
+	t_img	exit;
+	t_img	free_space;
+	int		moves;
+	int		coin;
 }				t_game;
 
 #endif

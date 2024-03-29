@@ -6,23 +6,11 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:48:11 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/21 20:06:14 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/28 23:08:18 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void	clean_tiles(char **tiles)
-{
-	int	i;
-
-	i = 0;
-	if (!tiles || !tiles[i])
-		return ;
-	while (tiles[i])
-		free (tiles[i++]);
-	free (tiles);
-}
 
 int	exit_error(t_game *game, char *msg)
 {
@@ -42,6 +30,11 @@ void	check_filename(char	*file)
 		exit_error(NULL, "Invalid file name.");
 	else if (!ft_strnstr(file + i - 4, ".ber", 4))
 		exit_error(NULL, "Invalid file extension.");
+}
+
+t_tile	get_tile(t_game *game, t_pos pos)
+{
+	return (game->map->tiles[pos.y][pos.x]);
 }
 
 int	flood_fill(t_map *map, t_pos curr, char **path)
