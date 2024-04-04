@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:27:40 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 01:31:55 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 15:05:09 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	check_map(t_game *game)
 	if (!game->map->pos.y)
 		exit_error(game, "Map is empty!");
 	if (!check_format(game->map))
-		exit_error(game, "Map isn't rectangular");
+		exit_error(game, "Map isn't rectangular!");
 	if (!check_walls(game->map))
 		exit_error(game, "Map not sorrounded by walls");
 	if (!check_tiles(game, game->map))

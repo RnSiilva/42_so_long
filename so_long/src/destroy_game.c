@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:32:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 01:22:24 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/04 00:30:43 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,17 @@
 
 void	destroy_image(t_game *game)
 {
-	if (!game->wall.img)
+	if (!game->i_wall.img)
 		return ;
-	mlx_destroy_image(game->mlx_ptr, game->wall.img);
-	mlx_destroy_image(game->mlx_ptr, game->character.img);
-	mlx_destroy_image(game->mlx_ptr, game->collectible.img);
-	mlx_destroy_image(game->mlx_ptr, game->exit.img);
-	mlx_destroy_image(game->mlx_ptr, game->free_space.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_wall.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_player.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_collectible.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_exit.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_free_space.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_player_exit.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_player_plate.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_exit_open.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_plate.img);
 }
 
 void	clean_tiles(char **tiles)
@@ -59,6 +63,10 @@ void	clean_game(t_game *game)
 
 int	destroy_game(t_game *game)
 {
+	if (game->map->tiles[game->next_pos.y][game->next_pos.x] == EXIT_OPEN)
+		ft_printf(GREEN "Congratulations! you completed the game 🥳\n" RESET);
+	else
+		ft_printf(RED "Game closed by player!\n" RESET);
 	clean_game(game);
 	exit(EXIT_SUCCESS);
 }

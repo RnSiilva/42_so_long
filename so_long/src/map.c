@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 01:31:24 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/04 01:02:10 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,30 @@ void	read_map(t_game *game, char *file)
 
 void	render_tile(t_game *game, t_pos	p)
 {
+	t_img	sprite;
+
 	if (game->map->tiles[p.y][p.x] == WALL)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->wall.img, (p.x * SIZE), (p.y * SIZE));
-	else if (game->map->tiles[p.y][p.x] == COIN)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->collectible.img, (p.x * SIZE), (p.y * SIZE));
+		sprite = game->i_wall;
 	else if (game->map->tiles[p.y][p.x] == PLAYER)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->character.img, (p.x * SIZE), (p.y * SIZE));
+		sprite = game->i_player;
+	else if (game->map->tiles[p.y][p.x] == COIN)
+		sprite = game->i_collectible;
 	else if (game->map->tiles[p.y][p.x] == EXIT)
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->exit.img, (p.x * SIZE), (p.y * SIZE));
+	{
+		game->exit_pos.x = p.x;
+		game->exit_pos.y = p.y;
+		sprite = game->i_exit;
+	}
+	else if (game->map->tiles[p.y][p.x] == PLAYER_EXIT)
+		sprite = game->i_player_exit;
+	else if (game->map->tiles[p.y][p.x] == PLAYER_PLATE)
+		sprite = game->i_player_plate;
+	else if (game->map->tiles[p.y][p.x] == PLATE)
+		sprite = game->i_plate;
 	else
-		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
-		game->free_space.img, (p.x * SIZE), (p.y * SIZE));
+		sprite = game->i_free_space;
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, sprite.img,
+		(p.x * SIZE), (p.y * SIZE));
 }
 
 void	render_map(t_game *game, t_map *map)

@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 16:00:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 01:29:50 by resilva          ###   ########.fr       */
+/*   Updated: 2024/03/29 14:37:35 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	init_game(char *file)
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-		exit_error(NULL, "Invalid number of arguments.");
+		exit_error(NULL, "Use: ./so_long path_to_map_file.ber");
 	check_filename(av[1]);
 	init_game(av[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:04:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/03/29 01:30:32 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/03 04:16:35 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,15 @@ void	launch_mlx(t_game *game, t_map *map)
 
 void	load_sprites(t_game *game)
 {
-	game->wall = new_sprite(game->mlx_ptr, WALL_PATH);
-	game->character = new_sprite(game->mlx_ptr, CHAR_PATH);
-	game->collectible = new_sprite(game->mlx_ptr, COLLECT_PATH);
-	game->exit = new_sprite(game->mlx_ptr, EXIT_PATH);
-	game->free_space = new_sprite(game->mlx_ptr, FREESP_PATH);
+	game->i_wall = new_sprite(game->mlx_ptr, WALL_PATH);
+	game->i_player = new_sprite(game->mlx_ptr, CHAR_PATH);
+	game->i_player_plate = new_sprite(game->mlx_ptr, CHARPLATE_PATH);
+	game->i_player_exit = new_sprite(game->mlx_ptr, CHAR_EXIT_PATH);
+	game->i_collectible = new_sprite(game->mlx_ptr, COIN_PATH);
+	game->i_plate = new_sprite(game->mlx_ptr, PLATE_PATH);
+	game->i_exit = new_sprite(game->mlx_ptr, EXIT_PATH);
+	game->i_exit_open = new_sprite(game->mlx_ptr, EXIT_OPEN_PATH);
+	game->i_free_space = new_sprite(game->mlx_ptr, FREESP_PATH);
 }
 
 t_img	new_sprite(void	*mlx_ptr, char *path)
