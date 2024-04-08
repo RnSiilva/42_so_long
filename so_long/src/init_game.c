@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 20:04:39 by resilva           #+#    #+#             */
-/*   Updated: 2024/04/03 04:16:35 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/08 15:56:34 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	load_sprites(t_game *game)
 	game->i_player = new_sprite(game->mlx_ptr, CHAR_PATH);
 	game->i_player_plate = new_sprite(game->mlx_ptr, CHARPLATE_PATH);
 	game->i_player_exit = new_sprite(game->mlx_ptr, CHAR_EXIT_PATH);
+	game->i_player_coin = new_sprite(game->mlx_ptr, CHARCOIN_PATH);
 	game->i_collectible = new_sprite(game->mlx_ptr, COIN_PATH);
 	game->i_plate = new_sprite(game->mlx_ptr, PLATE_PATH);
 	game->i_exit = new_sprite(game->mlx_ptr, EXIT_PATH);

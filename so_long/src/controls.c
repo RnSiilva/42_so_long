@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:31:01 by resilva           #+#    #+#             */
-/*   Updated: 2024/04/04 01:01:57 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/08 16:11:11 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,43 +27,21 @@ int	keypress(int key, t_game *game)
 	return (0);
 }
 
-// void	player_move(t_game *game, t_map *map)
-// {
-// 	t_tile			next_tile;
-// 	static t_tile	previous = SPACE;
-// 	next_tile = get_tile(game, game->next_pos);
-// 	if (next_tile == COIN || next_tile == PLATE)
-// 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER_PLATE;
-// 	else if (next_tile == EXIT)
-// 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER_EXIT;
-// 	else
-// 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER;
-
-// 	if (previous == PLAYER_PLATE || previous == COIN)
-// 		map->tiles[game->player_pos.y][game->player_pos.x] = PLATE;
-// 	else if (previous == PLAYER_EXIT)
-// 		map->tiles[game->player_pos.y][game->player_pos.x] = EXIT;
-// 	else
-// 		map->tiles[game->player_pos.y][game->player_pos.x] = SPACE;
-// 	render_tile(game, game->player_pos);
-// 	render_tile(game, game->next_pos);
-// 	game->player_pos = game->next_pos;
-// 	previous = map->tiles[game->next_pos.y][game->next_pos.x];
-// }
-
 void	player_move(t_game *game, t_map *map)
 {
 	static t_tile	previous = SPACE;
 	t_tile			next_tile;
 
 	next_tile = get_tile(game, game->next_pos);
-	if (next_tile == COIN || next_tile == PLATE)
+	if (next_tile == COIN)
+		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER_COIN;
+	else if (next_tile == PLATE)
 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER_PLATE;
 	else if (next_tile == EXIT)
 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER_EXIT;
 	else
 		map->tiles[game->next_pos.y][game->next_pos.x] = PLAYER;
-	if (previous == PLAYER_PLATE)
+	if (previous == PLAYER_PLATE || previous == PLAYER_COIN)
 		map->tiles[game->player_pos.y][game->player_pos.x] = PLATE;
 	else if (previous == PLAYER_EXIT)
 		map->tiles[game->player_pos.y][game->player_pos.x] = EXIT;

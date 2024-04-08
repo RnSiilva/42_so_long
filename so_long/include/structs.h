@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:22:24 by resilva           #+#    #+#             */
-/*   Updated: 2024/04/04 01:08:45 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/08 16:11:57 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@
 /* Path images */
 # define WALL_PATH		"./img/wall.xpm"
 # define CHAR_PATH		"./img/player.xpm"
+# define CHARL_PATH		"./img/left.xpm"
 # define CHARPLATE_PATH	"./img/player_plate.xpm"
+# define CHARCOIN_PATH	"./img/player_coin.xpm"
 # define CHAR_EXIT_PATH	"./img/player_exit.xpm"
 # define COIN_PATH		"./img/collect.xpm"
 # define PLATE_PATH		"./img/plate.xpm"
@@ -61,7 +63,8 @@ typedef enum e_tile
 	EXIT_OPEN = 'K',
 	PLATE = 'L',
 	PLAYER_PLATE = 'M',
-	PLAYER_EXIT = 'N'
+	PLAYER_EXIT = 'N',
+	PLAYER_COIN = 'Q'
 }				t_tile;
 
 typedef enum e_key
@@ -92,6 +95,7 @@ typedef struct s_img
 	int		x;
 	int		y;
 	int		movements;
+	int		active;
 }				t_img;
 typedef struct s_map
 {
@@ -114,6 +118,7 @@ typedef struct s_game
 	t_img	i_player;
 	t_img	i_player_plate;
 	t_img	i_player_exit;
+	t_img	i_player_coin;
 	t_img	i_collectible;
 	t_img	i_exit;
 	t_img	i_exit_open;

@@ -6,7 +6,7 @@
 #    By: resilva <resilva@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/14 16:02:54 by resilva           #+#    #+#              #
-#    Updated: 2024/04/04 03:25:30 by resilva          ###   ########.fr        #
+#    Updated: 2024/04/08 12:25:31 by resilva          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,29 +52,29 @@ MLX			= -L ${MLX_PATH} -lmlx -lmlx -lXext -lX11 -lm
 all:	${NAME}
 
 $(NAME): ${OBJS}
-		@$(PRINTF) "$(MAGNETA)Compiling:$(RESET) $(GREEN)libft/*$(RESET)\n"
+		@echo "$(MAGNETA)Compiling:$(RESET) $(GREEN)libft/*$(RESET)"
 		${MAKE} ${LIBFT_PATH}
 		
-		@$(PRINTF) "$(MAGNETA)Compiling:$(RESET) $(GREEN)mlx/*$(RESET)\n"
+		@echo "$(MAGNETA)Compiling:$(RESET) $(GREEN)mlx/*$(RESET)"
 		${MAKE} ${MLX_PATH} 2> /dev/null
 		
-		@$(PRINTF) "$(CYAN)🔗 Linking: $(RESET) $(CFLAGS) $(GREEN)*$(RESET)\n" 
+		@echo "$(CYAN)🔗 Linking...$(RESET)" 
 		${CC} ${OBJS} ${LIBFT} ${MLX} -o ${NAME}
 
-		@$(PRINTF) "$(GREEN)🎉 Compilation is done! 🎉$(RESET)\n"
+		@echo "$(GREEN)🎉 Compilation is done! 🎉$(RESET)"
 
 clean:
-		@$(PRINTF) "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(OBJS)$(RESET)\n"
-		${RM} ${OBJS}
+		@${RM} ${OBJS}
 
 		${MAKE} ${MLX_PATH} clean
 		${MAKE} ${LIBFT_PATH} clean
+		@echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(OBJS)$(RESET)"
 
 fclean: clean
 		${MAKE} ${LIBFT_PATH} clean
 
-		@$(PRINTF) "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(NAME)$(RESET)\n"
-		${RM} ${NAME}
+		@echo "$(RED)🗑️  Deleted: $(RESET) $(GREEN)$(NAME)$(RESET)"
+		@${RM} ${NAME}
 
 re: fclean all
 

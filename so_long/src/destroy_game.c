@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 22:32:57 by resilva           #+#    #+#             */
-/*   Updated: 2024/04/04 00:30:43 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/08 15:58:35 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	destroy_image(t_game *game)
 	mlx_destroy_image(game->mlx_ptr, game->i_player_plate.img);
 	mlx_destroy_image(game->mlx_ptr, game->i_exit_open.img);
 	mlx_destroy_image(game->mlx_ptr, game->i_plate.img);
+	mlx_destroy_image(game->mlx_ptr, game->i_player_coin.img);
 }
 
 void	clean_tiles(char **tiles)

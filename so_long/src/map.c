@@ -6,7 +6,7 @@
 /*   By: resilva <resilva@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 02:07:04 by resilva           #+#    #+#             */
-/*   Updated: 2024/04/04 01:02:10 by resilva          ###   ########.fr       */
+/*   Updated: 2024/04/08 16:35:58 by resilva          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,14 @@ void	render_tile(t_game *game, t_pos	p)
 		sprite = game->i_player_exit;
 	else if (game->map->tiles[p.y][p.x] == PLAYER_PLATE)
 		sprite = game->i_player_plate;
+	else if (game->map->tiles[p.y][p.x] == PLAYER_COIN)
+		sprite = game->i_player_coin;
 	else if (game->map->tiles[p.y][p.x] == PLATE)
 		sprite = game->i_plate;
 	else
 		sprite = game->i_free_space;
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, sprite.img,
-		(p.x * SIZE), (p.y * SIZE));
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr,
+		sprite.img, (p.x * SIZE), (p.y * SIZE));
 }
 
 void	render_map(t_game *game, t_map *map)
