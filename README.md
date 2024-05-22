@@ -53,7 +53,7 @@ _Note: only mandatory requirements of the project's subject are covered._
 
 This game is inspired by The Simpsons, in which Homer needs to eat all the donuts before leaving the house.
 
-![Sem título](https://github.com/RnSiilva/42_so_long/blob/main/Screenshot.png)
+![Sem título](https://github.com/RnSiilva/42_so_long/blob/main/so_long/img/png/.Screenshot.png)
 ## 🛠️ Usage
 
 ### Requirements
