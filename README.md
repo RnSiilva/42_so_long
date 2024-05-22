@@ -49,7 +49,7 @@
 
 _Note: only mandatory requirements of the project's subject are covered._
 
-## About my game
+## 🕹️ About my game
 
 This game is inspired by The Simpsons, in which Homer needs to eat all the donuts before leaving the house.
 
@@ -94,15 +94,13 @@ $ ./so_long maps/42.ber
 You can use this third party tester to fully test the project:
 
 - so_long_invalidator (Nuno-Jesus): https://github.com/Nuno-Jesus/so_long_invalidator
-- Push_swap_visualizer (o-reo): https://github.com/o-reo/push_swap_visualizer
-
 
 ## 📌 Useful Links
 
 * [[PISKEL] Sprite editor](https://www.piskelapp.com/)
 * [[GITHUB] Install minilibx Ubuntu 18.04](https://gist.github.com/caio-vinicius/c082bf00b6b2d3c8aeb58f038af9b210)
 
-## Game Rules
+## 📋 Game Rules
 - The player starts at an initial position marked by a character.
 - The goal is to collect all the items represented by collectibles (`C`) on the map.
 - The player must avoid obstacles represented by walls (`1`) and enemies (`E`).
@@ -110,7 +108,7 @@ You can use this third party tester to fully test the project:
 - The game ends when the player collects all the items and returns to the initial position or is captured by an enemy.
 - The number of moves made by the player is displayed in the game window.
 
-## Controls
+## 🎮 Controls
 - `W`, `S`, `D`, `A` and `Arrow keys`: move the character in the up, down, left, and right directions.
 - `ESC` key: exit the game.
 
